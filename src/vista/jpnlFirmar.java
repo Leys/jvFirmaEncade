@@ -149,7 +149,8 @@ public class jpnlFirmar extends javax.swing.JPanel {
         double inicio = System.currentTimeMillis();
 
         String token = null;
-        File seed = new File("./seed.key");
+        File seed = new File("./"+user.getUsuario()+"/seed.key");
+        System.out.println("./"+user.getUsuario()+"/seed.key");
         if (seed.exists()) {
             try {
                 FileReader archivos = new FileReader(seed);
@@ -173,7 +174,7 @@ public class jpnlFirmar extends javax.swing.JPanel {
                     String[] ultHAux = user.getUltH().split(",");
                     int ultH[] = new int[ultHAux.length];
                     for (int i = 0; i < ultHAux.length; i++) {
-                        ultH[i] = Integer.parseInt(ultHAux[1]);
+                        ultH[i] = Integer.parseInt(ultHAux[i]);
                     }
                     firmar.setUltH(ultH);
 

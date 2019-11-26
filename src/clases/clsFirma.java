@@ -185,7 +185,8 @@ public class clsFirma {
                 firma[i] = calcHash(firma[i]);
             }
         }
-
+        
+        System.out.println("H con problema: "+ultH[0]);
         //calcular mapeo de firma
         link = getUltSeed();
         for (int i = 0; i < 16; i++) {
@@ -197,7 +198,6 @@ public class clsFirma {
                 link[i] = calcHash(link[i]);
             }
         }
-
         String informacion = depurar(m);
         return informacion;
 
@@ -259,11 +259,24 @@ public class clsFirma {
         return inf;
     }
 
+    private void ayuda(int[] h){
+        byte[] a=clsFirma.hextoByte("56c3daa0397219ddd349d704d5c880b427d3007d0051c742eb7db97f91f468bd");
+        for(int i=0;i<h[0];i++){
+            a=calcHash(a);
+        }
+        System.out.println(byteToHex(a));
+        
+    }
+    
+    
+    
     public String verificarFirma(byte[][] f1, byte[][] f0, int[] uh, byte[] mensaje) {
         String details="";
         int[] h = calcH(mensaje);
         firma = f1;
-
+        System.out.println("Est0: "+byteToHex(firma[0]));
+        ayuda(h);
+        
         long t = System.currentTimeMillis();
         for (int i = 0; i < 16; i++) {
             for (int j = 0; j < h[i]; j++) {
@@ -318,9 +331,11 @@ public class clsFirma {
     }
     
     static public byte[][] getFirmaByte(String[] firma) {
-        byte[][] res=new byte[firma.length][32];
+        byte[][] res=new byte[firma.length][16];
+        int i=0;
         for(String f : firma){
-            res[0]=hextoByte(f);
+            res[i]=hextoByte(f);
+            i++;
         }
         return res;
     }
@@ -361,7 +376,7 @@ public class clsFirma {
 
     }
 
-    private String byteToHex(byte[] f) {
+    public String byteToHex(byte[] f) {
         String hex = "";
         for (byte b : f) {
             String st = String.format("%02x", b);

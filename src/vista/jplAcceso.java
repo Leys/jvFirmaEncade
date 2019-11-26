@@ -123,6 +123,10 @@ public class jplAcceso extends javax.swing.JPanel {
 
                         user.setEstatus(Integer.parseInt(rsFrm.getString(3)));
                         usu.setEstatus(Integer.parseInt(rsFrm.getString(3)));
+
+                        user.setUsuario(rsFrm.getString(4));
+                        usu.setUsu(rsFrm.getString(4));
+
                     }
                 }
 
@@ -135,7 +139,7 @@ public class jplAcceso extends javax.swing.JPanel {
                     jlblError.setText("Acceso autorizado");
                     jfrmUsPrincipal frm = new jfrmUsPrincipal(user);
                     frm.setVisible(true);
-                    
+
                     JFrame frame = (JFrame) SwingUtilities.getWindowAncestor(this);
                     frame.dispose();
 
@@ -148,7 +152,7 @@ public class jplAcceso extends javax.swing.JPanel {
             }
 
         } else {
-            //                campos vacio
+            jlblError.setText("Llenar todos los campos");
         }
     }//GEN-LAST:event_jtbnAceptarActionPerformed
 

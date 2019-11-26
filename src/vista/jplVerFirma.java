@@ -195,8 +195,11 @@ public class jplVerFirma extends javax.swing.JPanel {
             clsUsuario us = new clsUsuario();
 
             us.conexion();
-            if (!us.buscarUsuario(faux).equals("0")) {
-
+            int idFirma=us.buscarUsuario(faux);
+            if (idFirma!=0) {
+                
+                us.getVFirma(idFirma);
+                
                 String[] uhaux = us.getUh().split(",");
                 int[] uh = new int[uhaux.length];//obtener h anterior, ultima h-1
                 for (int i = 0; i < uh.length; i++) {
@@ -212,25 +215,28 @@ public class jplVerFirma extends javax.swing.JPanel {
                 String[] llaveaux = us.getLlave().split(",");
                 byte[][] llave = new byte[16][16];     //obtener llave publica de base de datos
                 for (int i = 0; i < llaveaux.length; i++) {
-                    f0[i] = clsFirma.hextoByte(llaveaux[i]);
+                    llave[i] = clsFirma.hextoByte(llaveaux[i]);
                 }
 
                 String[] ultFirmaaux = us.getUltFirma().split(",");
                 byte[][] ultFirma = new byte[16][16];     //obtener ultFirma-1
                 for (int i = 0; i < ultFirmaaux.length; i++) {
-                    f0[i] = clsFirma.hextoByte(ultFirmaaux[i]);
+                    ultFirma[i] = clsFirma.hextoByte(ultFirmaaux[i]);
                 }
 
+
                 clsFirma verif = new clsFirma();
+                
                 verif.verificarFirma(firma.clone(), f0.clone(), uh.clone(), archivo.clone());
-
-                System.out.println(" \nPrimer verificacion: ");
-
+                System.out.println("Primer verificacion: ");
+                
                 for (int i = 0; i < 16; i++) {
-                    if (verif.toDouble(verif.getLlave()[i]) == verif.toDouble(llave[i])) {
+                    if (verif.toDouble(verif.getFirma()[i]) == verif.toDouble(llave[i])) {
                         System.out.println("Correcto");
                     } else {
-                        System.out.println("ERROR");
+                        System.out.print(i+"ERROR");
+                        System.out.println(verif.toDouble(verif.getFirma()[i]) + ":" + verif.toDouble(llave[i]));
+
                     }
                 }
 
