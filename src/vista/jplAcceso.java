@@ -52,7 +52,7 @@ public class jplAcceso extends javax.swing.JPanel {
         jtxtContra = new javax.swing.JPasswordField();
         jtxtUsuario = new javax.swing.JTextField();
 
-        setPreferredSize(new java.awt.Dimension(100, 200));
+        setPreferredSize(new java.awt.Dimension(500, 500));
 
         jlblError.setText("jLabel2");
 

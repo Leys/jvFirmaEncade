@@ -158,9 +158,9 @@ public class clsUsuario extends clsConexion {
             res = rs.getString(1);
             if (!"0".equals(res)) {
                 uh = rs.getString(1);
-                link = rs.getString(2);
-                llave = rs.getString(3);
-                ultFirma = rs.getString(4);
+                ultFirma = rs.getString(2);
+                link = rs.getString(3);
+                llave = rs.getString(4);
             }
         }
         rs.close();
@@ -177,8 +177,8 @@ public class clsUsuario extends clsConexion {
         while (rs.next()) {
             res = rs.getString(1);
             if (!"0".equals(res)) {
-                this.Id = Integer.parseInt(res);
-                this.Nombre = rs.getString(2);
+                this.Id = Integer.parseInt(rs.getString(2));
+                this.Nombre = rs.getString(4);
                 this.Usuario = rs.getString(3);
             }
         }

@@ -318,9 +318,11 @@ public class clsFirma {
     }
     
     static public byte[][] getFirmaByte(String[] firma) {
-        byte[][] res=new byte[firma.length][32];
+        byte[][] res=new byte[firma.length][16];
+        int i=0;
         for(String f : firma){
-            res[0]=hextoByte(f);
+            res[i]=hextoByte(f);
+            i++;
         }
         return res;
     }

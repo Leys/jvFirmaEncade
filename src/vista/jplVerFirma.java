@@ -159,7 +159,6 @@ public class jplVerFirma extends javax.swing.JPanel {
                         .addComponent(jbtnVerificar)
                         .addGap(544, 544, 544))
                     .addGroup(layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(jlblArchivo, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -255,6 +254,8 @@ public class jplVerFirma extends javax.swing.JPanel {
             us.conexion();
             if (!us.buscarUsuario(faux).equals("0")) {
 
+                us.getVFirma();
+                
                 String[] uhaux = us.getUh().split(",");
                 int[] uh = new int[uhaux.length];//obtener h anterior, ultima h-1
                 for (int i = 0; i < uh.length; i++) {
@@ -285,7 +286,7 @@ public class jplVerFirma extends javax.swing.JPanel {
                 System.out.println(" \nPrimer verificacion: ");
 
                 for (int i = 0; i < 16; i++) {
-                    if (verif.toDouble(verif.getLlave()[i]) == verif.toDouble(llave[i])) {
+                    if (verif.toDouble(verif.getLink()[i]) == verif.toDouble(llave[i])) {
                         System.out.println("Correcto");
                     } else {
                         System.out.println("ERROR");
