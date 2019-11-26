@@ -57,6 +57,9 @@ public class jplVerFirma extends javax.swing.JPanel {
         lblClose = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         lblMin = new javax.swing.JLabel();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jtxtAResultado = new javax.swing.JTextArea();
 
         setPreferredSize(new java.awt.Dimension(615, 315));
 
@@ -148,32 +151,41 @@ public class jplVerFirma extends javax.swing.JPanel {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
+        jtxtAResultado.setColumns(20);
+        jtxtAResultado.setRows(5);
+        jScrollPane1.setViewportView(jtxtAResultado);
+
+        jScrollPane2.setViewportView(jScrollPane1);
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jbtnVerificar)
-                        .addGap(544, 544, 544))
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(jlblArchivo, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jbtnArchivo))
-                            .addComponent(jLabel2))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(jlblFirma, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jbtnFirma))
-                            .addComponent(jLabel3))
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(jlblArchivo, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(jbtnArchivo))
+                                    .addComponent(jLabel2))
+                                .addGap(147, 147, 147)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(jlblFirma, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(jbtnFirma))
+                                    .addComponent(jLabel3)))
+                            .addComponent(jScrollPane2))
                         .addContainerGap())))
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -191,7 +203,9 @@ public class jplVerFirma extends javax.swing.JPanel {
                     .addComponent(jlblFirma))
                 .addGap(18, 18, 18)
                 .addComponent(jbtnVerificar)
-                .addContainerGap(127, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 221, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(26, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -248,14 +262,16 @@ public class jplVerFirma extends javax.swing.JPanel {
     }//GEN-LAST:event_jbtnFirmaActionPerformed
 
     private void jbtnVerificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtnVerificarActionPerformed
+        String resultado = "";
         try {
             clsUsuario us = new clsUsuario();
 
             us.conexion();
-            if (!us.buscarUsuario(faux).equals("0")) {
+            int idFirma = us.buscarUsuario(faux);
+            if (idFirma != 0) {
 
-                us.getVFirma();
-                
+                us.getVFirma(idFirma);
+
                 String[] uhaux = us.getUh().split(",");
                 int[] uh = new int[uhaux.length];//obtener h anterior, ultima h-1
                 for (int i = 0; i < uh.length; i++) {
@@ -271,43 +287,54 @@ public class jplVerFirma extends javax.swing.JPanel {
                 String[] llaveaux = us.getLlave().split(",");
                 byte[][] llave = new byte[16][16];     //obtener llave publica de base de datos
                 for (int i = 0; i < llaveaux.length; i++) {
-                    f0[i] = clsFirma.hextoByte(llaveaux[i]);
+                    llave[i] = clsFirma.hextoByte(llaveaux[i]);
                 }
 
                 String[] ultFirmaaux = us.getUltFirma().split(",");
                 byte[][] ultFirma = new byte[16][16];     //obtener ultFirma-1
                 for (int i = 0; i < ultFirmaaux.length; i++) {
-                    f0[i] = clsFirma.hextoByte(ultFirmaaux[i]);
+                    ultFirma[i] = clsFirma.hextoByte(ultFirmaaux[i]);
                 }
 
                 clsFirma verif = new clsFirma();
-                verif.verificarFirma(firma.clone(), f0.clone(), uh.clone(), archivo.clone());
 
-                System.out.println(" \nPrimer verificacion: ");
+                verif.verificarFirma(firma.clone(), f0.clone(), uh.clone(), archivo.clone());
+                System.out.println("Primer verificacion: ");
+                resultado = "Primer verificacion: \n";
 
                 for (int i = 0; i < 16; i++) {
-                    if (verif.toDouble(verif.getLink()[i]) == verif.toDouble(llave[i])) {
-                        System.out.println("Correcto");
+                    if (verif.toDouble(verif.getFirma()[i]) == verif.toDouble(llave[i])) {
+                        System.out.println(i + " Correcto: " + verif.toDouble(verif.getFirma()[i]));
+                        resultado += i + " Correcto: " + verif.toDouble(verif.getFirma()[i]) + "\n";
                     } else {
-                        System.out.println("ERROR");
+                        System.out.print(i + "ERROR");
+                        System.out.println(verif.toDouble(verif.getFirma()[i]) + ":" + verif.toDouble(llave[i]));
+                        resultado += i + " ERROR: " + verif.toDouble(verif.getFirma()[i]) + ":" + verif.toDouble(llave[i]) + "\n";
+
                     }
                 }
 
                 System.out.println("\nSegunda verificacion: ");
                 for (int i = 0; i < 16; i++) {
                     if (verif.toDouble(verif.getLink()[i]) == verif.toDouble(ultFirma[i])) {
-                        System.out.println(i + "Correcto: " + verif.toDouble(verif.getLink()[i]));
+                        System.out.println(i + " Correcto: " + verif.toDouble(verif.getLink()[i]));
+                        resultado += i + " Correcto: " + verif.toDouble(verif.getLink()[i]) + "\n";
+
                     } else {
                         System.out.print(i + " ERROR: ");
                         System.out.println(verif.toDouble(verif.getLink()[i]) + ":" + verif.toDouble(ultFirma[i]));
+                        resultado += i + " ERROR: " + verif.toDouble(verif.getLink()[i]) + ":" + verif.toDouble(ultFirma[i]) + "\n";
+
                     }
                 }
             } else {
+                resultado = "La firma no pertenece a ningun usuario";
                 System.out.println("La firma no pertenece a ningun usuario");
             }
         } catch (SQLException ex) {
             System.out.println(ex.getMessage());
         }
+        jtxtAResultado.setText(resultado);
     }//GEN-LAST:event_jbtnVerificarActionPerformed
 
     private void lblCloseMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblCloseMouseClicked
@@ -325,11 +352,14 @@ public class jplVerFirma extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JButton jbtnArchivo;
     private javax.swing.JButton jbtnFirma;
     private javax.swing.JButton jbtnVerificar;
     private javax.swing.JLabel jlblArchivo;
     private javax.swing.JLabel jlblFirma;
+    private javax.swing.JTextArea jtxtAResultado;
     private javax.swing.JLabel lblClose;
     private javax.swing.JLabel lblMin;
     // End of variables declaration//GEN-END:variables

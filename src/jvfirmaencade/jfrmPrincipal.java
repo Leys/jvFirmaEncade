@@ -24,7 +24,7 @@ public class jfrmPrincipal extends javax.swing.JFrame {
         frm.setVisible(true);
         frm.setSize(420, 309);
         jpnMain.add(frm);
-        
+
         this.setExtendedState(MAXIMIZED_BOTH);
     }
 
@@ -113,7 +113,7 @@ public class jfrmPrincipal extends javax.swing.JFrame {
 
     private void jmenuRegActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmenuRegActionPerformed
         jpnMain.removeAll();
-        jpnlRegistro reg=new jpnlRegistro();
+        jpnlRegistro reg = new jpnlRegistro();
         reg.setVisible(true);
         reg.setSize(332, 270);
         jpnMain.add(reg);
@@ -122,7 +122,7 @@ public class jfrmPrincipal extends javax.swing.JFrame {
 
     private void jmenuISesionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmenuISesionActionPerformed
         jpnMain.removeAll();
-        jplAcceso ac=new jplAcceso();
+        jplAcceso ac = new jplAcceso();
         ac.setVisible(true);
         ac.setSize(420, 309);
         jpnMain.add(ac);
@@ -131,11 +131,10 @@ public class jfrmPrincipal extends javax.swing.JFrame {
 
     private void jmenuVerificarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jmenuVerificarMouseClicked
         // TODO add your handling code here:
-        System.out.println("Hi");
         jpnMain.removeAll();
-        jplVerFirma ac=new jplVerFirma();
+        jplVerFirma ac = new jplVerFirma();
         ac.setVisible(true);
-        ac.setSize(615, 315);
+        ac.setSize(32767, 32767);
         jpnMain.add(ac);
         jpnMain.updateUI();
     }//GEN-LAST:event_jmenuVerificarMouseClicked

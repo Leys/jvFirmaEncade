@@ -186,8 +186,10 @@ public class clsFirma {
             }
         }
 
+        System.out.println("H con problema: " + ultH[0]);
         //calcular mapeo de firma
         link = getUltSeed();
+        System.out.println("UltSeed2: " + byteToHex((this.getUltSeed()[0])));
         for (int i = 0; i < 16; i++) {
 
             int dx = (h[i] - BigInteger.valueOf(ultH[i]).multiply(BigInteger.valueOf(h[i])).divide(BigInteger.valueOf((long) (Math.pow(2, 16) - 1))).intValue());
@@ -197,7 +199,6 @@ public class clsFirma {
                 link[i] = calcHash(link[i]);
             }
         }
-
         String informacion = depurar(m);
         return informacion;
 
@@ -259,8 +260,22 @@ public class clsFirma {
         return inf;
     }
 
+    private void ayuda(int h, int uh) {
+
+        byte[] a = clsFirma.hextoByte("7b9dd3e2de7168e1174b51d39c6286425e257497836a82c68212888322e141a4");
+        int dx = (h - BigInteger.valueOf(uh).multiply(BigInteger.valueOf(h)).divide(BigInteger.valueOf((long) (Math.pow(2, 16) - 1))).intValue());
+        int e = (int) Math.ceil((Math.pow(2, 16) - uh - dx));
+
+        for (int i = 0; i < e; i++) {
+            a = calcHash(a);
+        }
+        System.out.println(byteToHex(a));
+        System.out.println(dx);
+
+    }
+
     public String verificarFirma(byte[][] f1, byte[][] f0, int[] uh, byte[] mensaje) {
-        String details="";
+        String details = "";
         int[] h = calcH(mensaje);
         firma = f1;
 
@@ -274,6 +289,7 @@ public class clsFirma {
         System.out.println("Tiempo de Primera verificacion: " + t);
         t = System.currentTimeMillis();
 
+        ayuda(h[0], uh[0]);
         link = f0;
         for (int i = 0; i < 16; i++) {
             int e = (h[i] - BigInteger.valueOf(uh[i]).multiply(BigInteger.valueOf(h[i])).divide(BigInteger.valueOf((long) (Math.pow(2, 16) - 1))).intValue());
@@ -306,6 +322,13 @@ public class clsFirma {
         return semilla;
     }
 
+    public String[] getSeedHex() {
+        String semilla[] = new String[2];
+        semilla[0] = byteToHex(this.seed[0]);
+        semilla[1] = byteToHex(this.seed[1]);
+        return semilla;
+    }
+
     public String getFirmaHex() {
         String hfirma = "";
         for (byte[] f : this.firma) {
@@ -316,12 +339,12 @@ public class clsFirma {
         return hfirma;
 
     }
-    
+
     static public byte[][] getFirmaByte(String[] firma) {
-        byte[][] res=new byte[firma.length][16];
-        int i=0;
-        for(String f : firma){
-            res[i]=hextoByte(f);
+        byte[][] res = new byte[firma.length][16];
+        int i = 0;
+        for (String f : firma) {
+            res[i] = hextoByte(f);
             i++;
         }
         return res;
@@ -353,6 +376,8 @@ public class clsFirma {
         s[0] = hextoByte(s0);
         s[1] = hextoByte(s1);
 
+        System.out.println(byteToHex(s[0]));
+
         for (int i = 2; i < 16; i++) {
             ByteArrayOutputStream output = new ByteArrayOutputStream();
             output.write(s[i - 2]);
@@ -363,7 +388,7 @@ public class clsFirma {
 
     }
 
-    private String byteToHex(byte[] f) {
+    public String byteToHex(byte[] f) {
         String hex = "";
         for (byte b : f) {
             String st = String.format("%02x", b);

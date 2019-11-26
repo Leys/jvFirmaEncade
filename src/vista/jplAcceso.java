@@ -104,7 +104,7 @@ public class jplAcceso extends javax.swing.JPanel {
         jLabel3.setForeground(new java.awt.Color(255, 255, 255));
         jLabel3.setText("Contraseña");
 
-        jtxtContra.setText("jPasswordField1");
+        jtxtContra.setText("dig");
 
         jtxtUsuario.setText("dig");
         jtxtUsuario.addActionListener(new java.awt.event.ActionListener() {

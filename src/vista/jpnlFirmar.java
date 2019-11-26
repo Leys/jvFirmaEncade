@@ -204,7 +204,7 @@ public class jpnlFirmar extends javax.swing.JPanel {
     private void jbtnFirmarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtnFirmarActionPerformed
         double inicio = System.currentTimeMillis();
 
-        String token = null;
+        String token = "";
         File seed = new File("./seed.key");
         if (seed.exists()) {
             try {
@@ -221,7 +221,8 @@ public class jpnlFirmar extends javax.swing.JPanel {
                     clsFirma firmar = new clsFirma();
 
                     //asignar ultima semilla
-                    firmar.setUltSeedHex(token.split("\n")[0], token.split("\n")[0]);
+                    firmar.setUltSeedHex(token.split("\n")[0], token.split("\n")[1]);
+                    System.out.println("UltSeed1: " + token);
 
                     //Asignar H
 //                    clsUsuario user = (clsUsuario) request.getSession().getAttribute("usuario");
@@ -229,7 +230,7 @@ public class jpnlFirmar extends javax.swing.JPanel {
                     String[] ultHAux = user.getUltH().split(",");
                     int ultH[] = new int[ultHAux.length];
                     for (int i = 0; i < ultHAux.length; i++) {
-                        ultH[i] = Integer.parseInt(ultHAux[1]);
+                        ultH[i] = Integer.parseInt(ultHAux[i]);
                     }
                     firmar.setUltH(ultH);
 
@@ -253,7 +254,7 @@ public class jpnlFirmar extends javax.swing.JPanel {
                         jtxtAInformacion.setText(inf);
 
                         //Actualizar semilla
-                        String[] aux1 = firmar.getUltSeedHex();
+                        String[] aux1 = firmar.getSeedHex();
                         String semilla = aux1[0] + "\n" + aux1[1];
 
                         BufferedWriter bw;

@@ -131,22 +131,22 @@ public class clsUsuario extends clsConexion {
         rs.close();
         return res;
     }
-    
+
     public String firmar(String link, String firma, String llave, String h) throws SQLException {
         String consultaSql;
         ResultSet rs;
-        consultaSql="call tspFirmarNuevoMensaje("+this.Id+", '"+llave+"', '"+firma+"', '"+h+"', '"+link+"');";
-        st= (Statement) cnn.createStatement();
-        rs= st.executeQuery(consultaSql);
-        String res="";
-        while(rs.next()){
-            res=rs.getString(1);
+        consultaSql = "call tspFirmarNuevoMensaje(" + this.Id + ", '" + llave + "', '" + firma + "', '" + h + "', '" + link + "');";
+        st = (Statement) cnn.createStatement();
+        rs = st.executeQuery(consultaSql);
+        String res = "";
+        while (rs.next()) {
+            res = rs.getString(1);
         }
         rs.close();
         return res;
     }
 
-    public String getVFirma() throws SQLException {
+    public String getVFirma(int idFirma) throws SQLException {
 
         String consultaSql;
         ResultSet rs;
@@ -167,7 +167,8 @@ public class clsUsuario extends clsConexion {
         return res;
     }
 
-    public String buscarUsuario(String f) throws SQLException {
+    public int buscarUsuario(String f) throws SQLException {
+        int idFirma = 0;
         String consultaSql;
         ResultSet rs;
         consultaSql = "call tspBuscarUsuario('" + f + "');";
@@ -180,10 +181,11 @@ public class clsUsuario extends clsConexion {
                 this.Id = Integer.parseInt(rs.getString(2));
                 this.Nombre = rs.getString(4);
                 this.Usuario = rs.getString(3);
+                idFirma = Integer.parseInt(rs.getString(1));
             }
         }
         rs.close();
-        return res;
+        return idFirma;
     }
 
 }

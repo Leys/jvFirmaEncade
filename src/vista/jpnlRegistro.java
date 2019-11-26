@@ -207,7 +207,7 @@ public class jpnlRegistro extends javax.swing.JPanel {
                     .addComponent(jLabel6))
                 .addGap(18, 18, 18)
                 .addComponent(jtbnRegistrar)
-                .addContainerGap(35, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
@@ -223,7 +223,7 @@ public class jpnlRegistro extends javax.swing.JPanel {
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(0, 55, Short.MAX_VALUE)
+                .addGap(0, 54, Short.MAX_VALUE)
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
@@ -277,7 +277,7 @@ public class jpnlRegistro extends javax.swing.JPanel {
                 } else {
                     String[] aux = obj.getUltSeedHex();
                     String semilla = aux[0] + "\n" + aux[1];
-                    
+
                     File archivo = new File("./seed.key");
                     BufferedWriter bw;
                     bw = new BufferedWriter(new FileWriter(archivo));
