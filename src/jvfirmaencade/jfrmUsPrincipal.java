@@ -6,8 +6,7 @@
 package jvfirmaencade;
 
 import clases.clsUsuario;
-import javax.swing.JFrame;
-import javax.swing.SwingUtilities;
+import vista.jplVerFirma;
 import vista.jpnlFirmar;
 
 /**
@@ -75,6 +74,11 @@ public class jfrmUsPrincipal extends javax.swing.JFrame {
         );
 
         jMenu1.setText("Verificar");
+        jMenu1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenu1ActionPerformed(evt);
+            }
+        });
         jMenuBar1.add(jMenu1);
 
         jMenu2.setText("Historial");
@@ -141,6 +145,16 @@ public class jfrmUsPrincipal extends javax.swing.JFrame {
         jpnMain.add(reg);
         jpnMain.updateUI();
     }//GEN-LAST:event_menuFirmarActionPerformed
+
+    private void jMenu1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenu1ActionPerformed
+        // TODO add your handling code here:
+        jpnMain.removeAll();
+        jplVerFirma ac = new jplVerFirma();
+        ac.setVisible(true);
+        ac.setSize(32767, 32767);
+        jpnMain.add(ac);
+        jpnMain.updateUI();
+    }//GEN-LAST:event_jMenu1ActionPerformed
 
     /**
      * @param args the command line arguments
