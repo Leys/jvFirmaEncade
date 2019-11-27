@@ -239,6 +239,8 @@ public class jplAcceso extends javax.swing.JPanel {
 
                         user.setEstatus(Integer.parseInt(rsFrm.getString(3)));
                         usu.setEstatus(Integer.parseInt(rsFrm.getString(3)));
+                        
+                        user.setUsuario(rsFrm.getString(4));
                     }
                 }
 

@@ -41,6 +41,13 @@ public class jpnlFirmar extends javax.swing.JPanel {
         jlblEstado.setText("");
         jbtnDescargar.setVisible(false);
     }
+    
+    public jpnlFirmar(clsUsuario us) {
+        initComponents();
+        jlblEstado.setText("");
+        jbtnDescargar.setVisible(false);
+        user=us;
+    }
 
     public void setUser(clsUsuario User) {
         this.user = User;
