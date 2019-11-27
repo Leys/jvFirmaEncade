@@ -205,7 +205,8 @@ public class jpnlFirmar extends javax.swing.JPanel {
         double inicio = System.currentTimeMillis();
 
         String token = "";
-        File seed = new File("./seed.key");
+        File seed = new File("./"+user.getUsuario()+"/seed.key");
+        System.out.println("./"+user.getUsuario()+"/seed.key");
         if (seed.exists()) {
             try {
                 FileReader archivos = new FileReader(seed);

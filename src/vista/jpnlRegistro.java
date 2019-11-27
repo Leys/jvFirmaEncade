@@ -278,12 +278,15 @@ public class jpnlRegistro extends javax.swing.JPanel {
                     String[] aux = obj.getUltSeedHex();
                     String semilla = aux[0] + "\n" + aux[1];
 
-                    File archivo = new File("./seed.key");
+                    File archivo  = new File("./"+usuario);
+                    if (!archivo.exists()) {
+                        archivo.mkdir();
+                    }
+                    archivo  = new File("./"+usuario+"/seed.key");
+                    
                     BufferedWriter bw;
                     bw = new BufferedWriter(new FileWriter(archivo));
-                    if (archivo.exists()) {
-                        //Se sobreescribio la semilla
-                    }
+                    
                     bw.write(semilla);
                     bw.close();
                     jlblError.setText("Usuario creado la semilla se ha almacenado en su computadora");
