@@ -8,6 +8,7 @@ package jvfirmaencade;
 import vista.jplAcceso;
 import vista.jplVerFirma;
 import vista.jpnlRegistro;
+import vista.jpnlVerUsuarios;
 
 /**
  *
@@ -22,7 +23,7 @@ public class jfrmPrincipal extends javax.swing.JFrame {
         initComponents();
         jplAcceso frm = new jplAcceso();
         frm.setVisible(true);
-        frm.setSize(420, 309);
+        frm.setSize(frm.getPreferredSize());
         jpnMain.add(frm);
 
         this.setExtendedState(MAXIMIZED_BOTH);
@@ -40,7 +41,7 @@ public class jfrmPrincipal extends javax.swing.JFrame {
         jpnMain = new javax.swing.JPanel();
         jMenuBar1 = new javax.swing.JMenuBar();
         jmenuVerificar = new javax.swing.JMenu();
-        jMenu2 = new javax.swing.JMenu();
+        jmenuHistorial = new javax.swing.JMenu();
         jMenu5 = new javax.swing.JMenu();
         jmenuReg = new javax.swing.JMenuItem();
         jmenuISesion = new javax.swing.JMenuItem();
@@ -55,7 +56,7 @@ public class jfrmPrincipal extends javax.swing.JFrame {
         );
         jpnMainLayout.setVerticalGroup(
             jpnMainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 270, Short.MAX_VALUE)
+            .addGap(0, 284, Short.MAX_VALUE)
         );
 
         jmenuVerificar.setText("Verificar");
@@ -66,8 +67,13 @@ public class jfrmPrincipal extends javax.swing.JFrame {
         });
         jMenuBar1.add(jmenuVerificar);
 
-        jMenu2.setText("Historial");
-        jMenuBar1.add(jMenu2);
+        jmenuHistorial.setText("Historial");
+        jmenuHistorial.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jmenuHistorialMouseClicked(evt);
+            }
+        });
+        jMenuBar1.add(jmenuHistorial);
 
         jMenu5.setText("Cuenta");
 
@@ -104,8 +110,8 @@ public class jfrmPrincipal extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(20, 20, 20)
-                .addComponent(jpnMain, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(25, Short.MAX_VALUE))
+                .addComponent(jpnMain, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
         );
 
         pack();
@@ -115,7 +121,7 @@ public class jfrmPrincipal extends javax.swing.JFrame {
         jpnMain.removeAll();
         jpnlRegistro reg = new jpnlRegistro();
         reg.setVisible(true);
-        reg.setSize(332, 270);
+        reg.setSize(reg.getPreferredSize());
         jpnMain.add(reg);
         jpnMain.updateUI();
     }//GEN-LAST:event_jmenuRegActionPerformed
@@ -124,7 +130,7 @@ public class jfrmPrincipal extends javax.swing.JFrame {
         jpnMain.removeAll();
         jplAcceso ac = new jplAcceso();
         ac.setVisible(true);
-        ac.setSize(420, 309);
+        ac.setSize(ac.getPreferredSize());
         jpnMain.add(ac);
         jpnMain.updateUI();
     }//GEN-LAST:event_jmenuISesionActionPerformed
@@ -134,10 +140,21 @@ public class jfrmPrincipal extends javax.swing.JFrame {
         jpnMain.removeAll();
         jplVerFirma ac = new jplVerFirma();
         ac.setVisible(true);
-        ac.setSize(32767, 32767);
+        ac.setSize(ac.getPreferredSize());
         jpnMain.add(ac);
         jpnMain.updateUI();
     }//GEN-LAST:event_jmenuVerificarMouseClicked
+
+    private void jmenuHistorialMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jmenuHistorialMouseClicked
+        // TODO add your handling code here:
+        System.out.println("hi");
+        jpnMain.removeAll();
+        jpnlVerUsuarios ac = new jpnlVerUsuarios();
+        ac.setVisible(true);
+        ac.setSize(ac.getPreferredSize());
+        jpnMain.add(ac);
+        jpnMain.updateUI();
+    }//GEN-LAST:event_jmenuHistorialMouseClicked
 
     /**
      * @param args the command line arguments
@@ -175,9 +192,9 @@ public class jfrmPrincipal extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JMenu jMenu2;
     private javax.swing.JMenu jMenu5;
     private javax.swing.JMenuBar jMenuBar1;
+    private javax.swing.JMenu jmenuHistorial;
     private javax.swing.JMenuItem jmenuISesion;
     private javax.swing.JMenuItem jmenuReg;
     private javax.swing.JMenu jmenuVerificar;

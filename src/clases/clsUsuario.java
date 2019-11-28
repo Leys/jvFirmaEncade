@@ -9,6 +9,8 @@ import com.mysql.jdbc.Statement;
 import java.sql.Date;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  *
@@ -29,12 +31,18 @@ public class clsUsuario extends clsConexion {
     String llave;
     String ultFirma;
 
+    String resultado;
+
     public String getUh() {
         return uh;
     }
 
     public String getLink() {
         return link;
+    }
+
+    public String getResultado() {
+        return resultado;
     }
 
     public String getLlave() {
@@ -102,6 +110,10 @@ public class clsUsuario extends clsConexion {
     }
 
     public clsUsuario() {
+    }
+
+    public clsUsuario(String us) {
+        //obtener datos del usuario
     }
 
     public String registrarUsuI(String nombre, String contra, String usuario, String foto, String h, String firma) throws SQLException {
@@ -186,6 +198,72 @@ public class clsUsuario extends clsConexion {
         }
         rs.close();
         return idFirma;
+    }
+
+    public ResultSet listarUsuarios(String b) throws SQLException {
+        ResultSet rs;
+        String consultaSql = "select * from USUARIO";
+        st = (Statement) cnn.createStatement();
+        rs = st.executeQuery(consultaSql);
+        return rs;
+    }
+
+    public boolean verificar() throws SQLException {
+        boolean res = true;
+        List<String> f = new ArrayList<String>();
+        List<String> l = new ArrayList<String>();
+        List<String> h = new ArrayList<String>();
+
+        conexion();
+        ResultSet rs;
+        String consultaSQL = "call tspVerificar(" + this.Id + ")";
+        st = (Statement) cnn.createStatement();
+        rs = st.executeQuery(consultaSQL);
+        while (rs.next()) {
+            f.add(rs.getString(1)); //firma
+            l.add(rs.getString(2)); //link
+            h.add(rs.getString(3)); //h
+        }
+        rs.close();
+
+        byte[][][] firmas = new byte[f.size()][16][16];
+        for (int i = 0; i < f.size(); i++) {
+            firmas[i] = arrStringToByte(f.get(i).split(","));
+        }
+
+        this.resultado = "Verificando\n";
+        for (int i = 0; i < f.size(); i++) {
+            clsFirma fir = new clsFirma();
+            byte[][] esFirma = fir.verCadena(arrStringToByte(l.get(i).split(",")), arrStringToInt(h.get(i - 1).split(",")), arrStringToInt(h.get(i).split(",")));
+
+            for (int j = 0; j < esFirma.length; j++) {
+                if (fir.toDouble(firmas[i][j]) == fir.toDouble(esFirma[i])) {
+                    this.resultado += "Correcto\tCadena: " + i + "\tSeccion: " + j + "Resultado: " + fir.toDouble(esFirma[i])+"\n";
+                } else {
+                    this.resultado += "ERROR\tCadena: " + i + "\tSeccion: " + j + "Resultado: " + fir.toDouble(firmas[i][j]) + "," + fir.toDouble(esFirma[i])+"\n";
+                    return false;
+                }
+            }
+
+        }
+
+        return res;
+    }
+
+    private byte[][] arrStringToByte(String[] org) {
+        byte[][] res = new byte[16][16];
+        for (int i = 0; i < org.length; i++) {
+            res[i] = clsFirma.hextoByte(org[i]);
+        }
+        return res;
+    }
+
+    private int[] arrStringToInt(String[] org) {
+        int[] res = new int[org.length];
+        for (int i = 0; i < org.length; i++) {
+            res[i] = Integer.parseInt(org[i]);
+        }
+        return res;
     }
 
 }
