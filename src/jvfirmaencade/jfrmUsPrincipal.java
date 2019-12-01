@@ -8,6 +8,7 @@ package jvfirmaencade;
 import clases.clsUsuario;
 import vista.jplVerFirma;
 import vista.jpnlFirmar;
+import vista.jpnlVerUsuarios;
 
 /**
  *
@@ -74,6 +75,11 @@ public class jfrmUsPrincipal extends javax.swing.JFrame {
         );
 
         jMenu1.setText("Verificar");
+        jMenu1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jMenu1MouseClicked(evt);
+            }
+        });
         jMenu1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jMenu1ActionPerformed(evt);
@@ -82,6 +88,11 @@ public class jfrmUsPrincipal extends javax.swing.JFrame {
         jMenuBar1.add(jMenu1);
 
         jMenu2.setText("Historial");
+        jMenu2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jMenu2MouseClicked(evt);
+            }
+        });
         jMenuBar1.add(jMenu2);
 
         jMenu3.setText("Mi cuenta");
@@ -148,13 +159,27 @@ public class jfrmUsPrincipal extends javax.swing.JFrame {
 
     private void jMenu1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenu1ActionPerformed
         // TODO add your handling code here:
+    }//GEN-LAST:event_jMenu1ActionPerformed
+
+    private void jMenu1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenu1MouseClicked
+        // TODO add your handling code here:
         jpnMain.removeAll();
         jplVerFirma ac = new jplVerFirma();
         ac.setVisible(true);
         ac.setSize(ac.getPreferredSize());
         jpnMain.add(ac);
         jpnMain.updateUI();
-    }//GEN-LAST:event_jMenu1ActionPerformed
+    }//GEN-LAST:event_jMenu1MouseClicked
+
+    private void jMenu2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenu2MouseClicked
+        // TODO add your handling code here:
+        jpnMain.removeAll();
+        jpnlVerUsuarios ac = new jpnlVerUsuarios();
+        ac.setVisible(true);
+        ac.setSize(ac.getPreferredSize());
+        jpnMain.add(ac);
+        jpnMain.updateUI();
+    }//GEN-LAST:event_jMenu2MouseClicked
 
     /**
      * @param args the command line arguments

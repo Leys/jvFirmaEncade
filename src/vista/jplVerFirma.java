@@ -299,7 +299,8 @@ public class jplVerFirma extends javax.swing.JPanel {
 
                     }
                 }
-
+                
+                resultado+="\n\nSegunda verificacion: \n";
                 System.out.println("\nSegunda verificacion: ");
                 for (int i = 0; i < 16; i++) {
                     if (verif.toDouble(verif.getLink()[i]) == verif.toDouble(ultFirma[i])) {
