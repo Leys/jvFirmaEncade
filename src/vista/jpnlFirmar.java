@@ -77,7 +77,7 @@ public class jpnlFirmar extends javax.swing.JPanel {
 
         setPreferredSize(new java.awt.Dimension(450, 300));
 
-        jbtnFirmar.setBackground(new java.awt.Color(127, 140, 141));
+        jbtnFirmar.setBackground(new java.awt.Color(204, 204, 204));
         jbtnFirmar.setFont(new java.awt.Font("Comic Sans MS", 0, 12)); // NOI18N
         jbtnFirmar.setText("Firmar");
         jbtnFirmar.setEnabled(false);
@@ -87,7 +87,7 @@ public class jpnlFirmar extends javax.swing.JPanel {
             }
         });
 
-        jButton1.setBackground(new java.awt.Color(127, 140, 141));
+        jButton1.setBackground(new java.awt.Color(204, 204, 204));
         jButton1.setFont(new java.awt.Font("Comic Sans MS", 0, 12)); // NOI18N
         jButton1.setText("Subir");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -106,7 +106,7 @@ public class jpnlFirmar extends javax.swing.JPanel {
 
         jlblEstado.setText("jLabel2");
 
-        jbtnDescargar.setBackground(new java.awt.Color(127, 140, 141));
+        jbtnDescargar.setBackground(new java.awt.Color(204, 204, 204));
         jbtnDescargar.setFont(new java.awt.Font("Comic Sans MS", 0, 12)); // NOI18N
         jbtnDescargar.setText("Descargar Firma");
         jbtnDescargar.addActionListener(new java.awt.event.ActionListener() {
