@@ -32,7 +32,7 @@ public class jpnlVerUsuarios extends javax.swing.JPanel {
             ResultSet rs = obj.listarUsuarios("");
             users = new ArrayList<String>();
             while (rs.next()) {
-                users.add(rs.getString(3));
+                users.add(rs.getString(1));
             }
             rs.close();
             jListUsuario.removeAll();
@@ -150,7 +150,6 @@ public class jpnlVerUsuarios extends javax.swing.JPanel {
         int sel = jListUsuario.getSelectedIndex();
         if (sel != -1) {
             try {
-
                 //llenar campos, recibe el usuario
                 clsUsuario usu = new clsUsuario(users.get(sel));
 
@@ -180,7 +179,7 @@ public class jpnlVerUsuarios extends javax.swing.JPanel {
             ResultSet rs = obj.listarUsuarios(jtxtBuqueda.getText());
             users = new ArrayList<String>();
             while (rs.next()) {
-                users.add(rs.getString(3));
+                users.add(rs.getString(1));
             }
             rs.close();
             jListUsuario.removeAll();

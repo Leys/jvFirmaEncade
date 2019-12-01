@@ -202,7 +202,7 @@ public class clsUsuario extends clsConexion {
 
     public ResultSet listarUsuarios(String b) throws SQLException {
         ResultSet rs;
-        String consultaSql = "select * from USUARIO";
+        String consultaSql = "call tspBusquedaUsuario('"+b+"')";
         st = (Statement) cnn.createStatement();
         rs = st.executeQuery(consultaSql);
         return rs;
@@ -210,9 +210,9 @@ public class clsUsuario extends clsConexion {
 
     public boolean verificar() throws SQLException {
         boolean res = true;
-        List<String> f = new ArrayList<String>();
-        List<String> l = new ArrayList<String>();
-        List<String> h = new ArrayList<String>();
+        List<String> f = new ArrayList<>();
+        List<String> l = new ArrayList<>();
+        List<String> h = new ArrayList<>();
 
         conexion();
         ResultSet rs;
