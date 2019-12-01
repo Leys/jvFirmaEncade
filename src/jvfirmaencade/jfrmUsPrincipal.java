@@ -140,7 +140,7 @@ public class jfrmUsPrincipal extends javax.swing.JFrame {
         jpnMain.removeAll();
         jpnlFirmar reg = new jpnlFirmar();
         reg.setVisible(true);
-        reg.setSize(32767, 32767);
+        reg.setSize(reg.getPreferredSize());
         reg.setUser(user);
         jpnMain.add(reg);
         jpnMain.updateUI();
@@ -151,7 +151,7 @@ public class jfrmUsPrincipal extends javax.swing.JFrame {
         jpnMain.removeAll();
         jplVerFirma ac = new jplVerFirma();
         ac.setVisible(true);
-        ac.setSize(32767, 32767);
+        ac.setSize(ac.getPreferredSize());
         jpnMain.add(ac);
         jpnMain.updateUI();
     }//GEN-LAST:event_jMenu1ActionPerformed

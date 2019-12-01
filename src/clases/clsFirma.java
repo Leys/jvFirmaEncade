@@ -293,8 +293,6 @@ public class clsFirma {
         link = f0;
         for (int i = 0; i < 16; i++) {
             int e = (h[i] - BigInteger.valueOf(uh[i]).multiply(BigInteger.valueOf(h[i])).divide(BigInteger.valueOf((long) (Math.pow(2, 16) - 1))).intValue());
-
-            //int e=(int)(h[i]-((uh[i]*h[i])/(Math.pow(2, 16)-1)));
             for (int j = 0; j < e; j++) {
                 link[i] = calcHash(link[i]);
             }
@@ -302,6 +300,16 @@ public class clsFirma {
         t = System.currentTimeMillis() - t;
         System.out.println("Tiempo de segunda verificacion: " + t);
         return details;
+    }
+    
+    public byte[][] verCadena(byte[][] lin, int[] uh, int h[]){
+        for (int i = 0; i < 16; i++) {
+            int e = (h[i] - BigInteger.valueOf(uh[i]).multiply(BigInteger.valueOf(h[i])).divide(BigInteger.valueOf((long) (Math.pow(2, 16) - 1))).intValue());
+            for (int j = 0; j < e; j++) {
+                lin[i] = calcHash(lin[i]);
+            }
+        }
+        return lin;
     }
 
     public String getUltFirmaHex() {
@@ -406,5 +414,6 @@ public class clsFirma {
         }
         return data;
     }
+    
 
 }
