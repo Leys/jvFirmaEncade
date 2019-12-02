@@ -110,7 +110,7 @@ public class clsDatos {
             //Se agrega el driver de conexión
             Class.forName("com.mysql.jdbc.Driver");
             
-            cnn=(Connection) DriverManager.getConnection("jdbc:mysql://localhost/BD_HASH","root","3209");
+            cnn=(Connection) DriverManager.getConnection("jdbc:mysql://localhost/BD_HASH","root","adaleysi97yo");
             
             System.out.println("Se hizo la conexión a la base de datos");
         }
