@@ -114,6 +114,7 @@ public class clsUsuario extends clsConexion {
 
     public clsUsuario(String us) {
         //obtener datos del usuario
+        this.Usuario = us;
     }
 
     public String registrarUsuI(String nombre, String contra, String usuario, String foto, String h, String firma) throws SQLException {
@@ -202,7 +203,7 @@ public class clsUsuario extends clsConexion {
 
     public ResultSet listarUsuarios(String b) throws SQLException {
         ResultSet rs;
-        String consultaSql = "call tspBusquedaUsuario('"+b+"')";
+        String consultaSql = "call tspBusquedaUsuario('" + b + "')";
         st = (Statement) cnn.createStatement();
         rs = st.executeQuery(consultaSql);
         return rs;
@@ -216,12 +217,12 @@ public class clsUsuario extends clsConexion {
 
         conexion();
         ResultSet rs;
-        String consultaSQL = "call tspVerificar(" + this.Id + ")";
+        String consultaSQL = "call tspBusquedaUsuarioH('" + this.Usuario + "')";
         st = (Statement) cnn.createStatement();
         rs = st.executeQuery(consultaSQL);
         while (rs.next()) {
-            f.add(rs.getString(1)); //firma
-            l.add(rs.getString(2)); //link
+            f.add(rs.getString(2)); //firma
+            l.add(rs.getString(4)); //link
             h.add(rs.getString(3)); //h
         }
         rs.close();
@@ -232,20 +233,21 @@ public class clsUsuario extends clsConexion {
         }
 
         this.resultado = "Verificando\n";
-        for (int i = 0; i < f.size(); i++) {
+        for (int i = 0; i < f.size() - 1; i++) {
             clsFirma fir = new clsFirma();
-            byte[][] esFirma = fir.verCadena(arrStringToByte(l.get(i).split(",")), arrStringToInt(h.get(i - 1).split(",")), arrStringToInt(h.get(i).split(",")));
-
+            byte[][] esFirma = fir.verCadena(arrStringToByte(l.get(i).split(",")), arrStringToInt(h.get(i).split(",")), arrStringToInt(h.get(i + 1).split(",")));
+            this.resultado += "\nCadena: " + i+"\n";
             for (int j = 0; j < esFirma.length; j++) {
-                if (fir.toDouble(firmas[i][j]) == fir.toDouble(esFirma[i])) {
-                    this.resultado += "Correcto\tCadena: " + i + "\tSeccion: " + j + "Resultado: " + fir.toDouble(esFirma[i])+"\n";
+                if (fir.toDouble(firmas[i][j]) == fir.toDouble(esFirma[j])) {
+                    this.resultado += "\tCorrecto\tSeccion: " + j + "\tResultado: " + fir.toDouble(esFirma[j]) + "\n";
                 } else {
-                    this.resultado += "ERROR\tCadena: " + i + "\tSeccion: " + j + "Resultado: " + fir.toDouble(firmas[i][j]) + "," + fir.toDouble(esFirma[i])+"\n";
+                    this.resultado += "\tERROR\tSeccion: " + j + "\tResultado: " + fir.toDouble(firmas[i][j]) + "," + fir.toDouble(esFirma[j]) + "\n";
                     return false;
                 }
             }
 
         }
+        this.resultado += "\nCadena correcta";
 
         return res;
     }
