@@ -96,26 +96,27 @@ public class jpnlRegistro extends javax.swing.JPanel {
 
         add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 330, 50));
 
-        jPanel2.setBackground(new java.awt.Color(27, 120, 156));
+        jPanel2.setBackground(new java.awt.Color(229, 224, 224));
 
+        jlblError.setForeground(new java.awt.Color(20, 60, 80));
         jlblError.setText("jLabel2");
 
-        jLabel5.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel5.setForeground(new java.awt.Color(20, 60, 80));
         jLabel5.setText("Apellido(s)");
 
-        jLabel6.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel6.setForeground(new java.awt.Color(20, 60, 80));
         jLabel6.setText("Confirmar contraseña");
 
-        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel2.setForeground(new java.awt.Color(20, 60, 80));
         jLabel2.setText("Contraseña");
 
-        jLabel3.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel3.setForeground(new java.awt.Color(20, 60, 80));
         jLabel3.setText("Nombre");
 
-        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel1.setForeground(new java.awt.Color(20, 60, 80));
         jLabel1.setText("Usuario:");
 
-        jtxtUsuario.setText("dig");
+        jtxtUsuario.setText("Usuario");
 
         jtxtNombre.setText("Nombre");
 
@@ -125,10 +126,6 @@ public class jpnlRegistro extends javax.swing.JPanel {
                 jtxtApellidoActionPerformed(evt);
             }
         });
-
-        jtxtConfContra.setText("dig");
-
-        jtxtContra.setText("dig");
 
         jtbnRegistrar.setBackground(new java.awt.Color(204, 204, 204));
         jtbnRegistrar.setFont(new java.awt.Font("Comic Sans MS", 0, 12)); // NOI18N
@@ -147,43 +144,43 @@ public class jpnlRegistro extends javax.swing.JPanel {
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGap(68, 68, 68)
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel2Layout.createSequentialGroup()
-                                .addGap(64, 64, 64)
-                                .addComponent(jLabel1)
-                                .addGap(10, 10, 10)
-                                .addComponent(jtxtUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addGroup(jPanel2Layout.createSequentialGroup()
                                 .addGap(67, 67, 67)
                                 .addComponent(jLabel3)
                                 .addGap(10, 10, 10)
-                                .addComponent(jtxtNombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(jtxtNombre))
                             .addGroup(jPanel2Layout.createSequentialGroup()
                                 .addGap(54, 54, 54)
                                 .addComponent(jLabel5)
                                 .addGap(10, 10, 10)
-                                .addComponent(jtxtApellido, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(jtxtApellido))
                             .addGroup(jPanel2Layout.createSequentialGroup()
                                 .addGap(48, 48, 48)
                                 .addComponent(jLabel2)
                                 .addGap(10, 10, 10)
-                                .addComponent(jtxtContra, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(jPanel2Layout.createSequentialGroup()
+                                .addComponent(jtxtContra))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                                 .addComponent(jLabel6)
                                 .addGap(10, 10, 10)
-                                .addComponent(jtxtConfContra, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                .addComponent(jtxtConfContra, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jPanel2Layout.createSequentialGroup()
+                                .addGap(64, 64, 64)
+                                .addComponent(jLabel1)
+                                .addGap(10, 10, 10)
+                                .addComponent(jtxtUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE))))
                     .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(160, 160, 160)
+                        .addGap(30, 30, 30)
                         .addComponent(jlblError))
                     .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(128, 128, 128)
+                        .addGap(133, 133, 133)
                         .addComponent(jtbnRegistrar)))
-                .addGap(161, 161, 161))
+                .addGap(114, 114, 114))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(5, 5, 5)
+                .addContainerGap()
                 .addComponent(jlblError)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
