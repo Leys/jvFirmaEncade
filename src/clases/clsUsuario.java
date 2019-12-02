@@ -234,6 +234,8 @@ public class clsUsuario extends clsConexion {
 
         this.resultado = "Verificando\n";
         for (int i = 0; i < f.size() - 1; i++) {
+            
+        double inicio = System.currentTimeMillis();
             clsFirma fir = new clsFirma();
             byte[][] esFirma = fir.verCadena(arrStringToByte(l.get(i).split(",")), arrStringToInt(h.get(i).split(",")), arrStringToInt(h.get(i + 1).split(",")));
             this.resultado += "\nCadena: " + i+"\n";
@@ -245,6 +247,7 @@ public class clsUsuario extends clsConexion {
                     return false;
                 }
             }
+            System.out.println("Tiempo por cadena: " + (System.currentTimeMillis() - inicio));
 
         }
         this.resultado += "\nCadena correcta";

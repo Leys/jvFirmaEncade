@@ -290,11 +290,11 @@ public class jplVerFirma extends javax.swing.JPanel {
 
                 for (int i = 0; i < 16; i++) {
                     if (verif.toDouble(verif.getFirma()[i]) == verif.toDouble(llave[i])) {
-                        System.out.println(i + " Correcto: " + verif.toDouble(verif.getFirma()[i]));
+                        //System.out.println(i + " Correcto: " + verif.toDouble(verif.getFirma()[i]));
                         resultado += i + " Correcto: " + verif.toDouble(verif.getFirma()[i]) + "\n";
                     } else {
-                        System.out.print(i + "ERROR");
-                        System.out.println(verif.toDouble(verif.getFirma()[i]) + ":" + verif.toDouble(llave[i]));
+                        //System.out.print(i + "ERROR");
+                        //System.out.println(verif.toDouble(verif.getFirma()[i]) + ":" + verif.toDouble(llave[i]));
                         resultado += i + " ERROR: " + verif.toDouble(verif.getFirma()[i]) + ":" + verif.toDouble(llave[i]) + "\n";
 
                     }
@@ -304,12 +304,12 @@ public class jplVerFirma extends javax.swing.JPanel {
                 System.out.println("\nSegunda verificacion: ");
                 for (int i = 0; i < 16; i++) {
                     if (verif.toDouble(verif.getLink()[i]) == verif.toDouble(ultFirma[i])) {
-                        System.out.println(i + " Correcto: " + verif.toDouble(verif.getLink()[i]));
+                        //System.out.println(i + " Correcto: " + verif.toDouble(verif.getLink()[i]));
                         resultado += i + " Correcto: " + verif.toDouble(verif.getLink()[i]) + "\n";
 
                     } else {
-                        System.out.print(i + " ERROR: ");
-                        System.out.println(verif.toDouble(verif.getLink()[i]) + ":" + verif.toDouble(ultFirma[i]));
+                        //System.out.print(i + " ERROR: ");
+                        //System.out.println(verif.toDouble(verif.getLink()[i]) + ":" + verif.toDouble(ultFirma[i]));
                         resultado += i + " ERROR: " + verif.toDouble(verif.getLink()[i]) + ":" + verif.toDouble(ultFirma[i]) + "\n";
 
                     }

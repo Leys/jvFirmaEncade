@@ -213,7 +213,6 @@ public class jpnlFirmar extends javax.swing.JPanel {
 
         String token = "";
         File seed = new File("./"+user.getUsuario()+"/seed.key");
-        System.out.println("./"+user.getUsuario()+"/seed.key");
         if (seed.exists()) {
             try {
                 FileReader archivos = new FileReader(seed);
@@ -230,7 +229,6 @@ public class jpnlFirmar extends javax.swing.JPanel {
 
                     //asignar ultima semilla
                     firmar.setUltSeedHex(token.split("\n")[0], token.split("\n")[1]);
-                    System.out.println("UltSeed1: " + token);
 
                     //Asignar H
 //                    clsUsuario user = (clsUsuario) request.getSession().getAttribute("usuario");

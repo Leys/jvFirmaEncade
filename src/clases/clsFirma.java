@@ -186,10 +186,8 @@ public class clsFirma {
             }
         }
 
-        System.out.println("H con problema: " + ultH[0]);
         //calcular mapeo de firma
         link = getUltSeed();
-        System.out.println("UltSeed2: " + byteToHex((this.getUltSeed()[0])));
         for (int i = 0; i < 16; i++) {
 
             int dx = (h[i] - BigInteger.valueOf(ultH[i]).multiply(BigInteger.valueOf(h[i])).divide(BigInteger.valueOf((long) (Math.pow(2, 16) - 1))).intValue());
@@ -221,11 +219,11 @@ public class clsFirma {
 
             //int e=(int)(h[i]-((ultH[i]*h[i])/(Math.pow(2, 16)-1)));
             //double dx=(h[i]-((ultH[i]*h[i])/((Math.pow(2, 16)-1))));
-            System.out.println(i + " f0: " + (int) (Math.pow(2, 16) - ultH[i]));
-            System.out.println(i + " e: " + e);
-            System.out.println(i + " h0: " + ultH[i]);
-            System.out.println(i + " h1: " + h[i]);
-            System.out.println(i + " dx: " + dx + "\n");
+//            System.out.println(i + " f0: " + (int) (Math.pow(2, 16) - ultH[i]));
+//            System.out.println(i + " e: " + e);
+//            System.out.println(i + " h0: " + ultH[i]);
+//            System.out.println(i + " h1: " + h[i]);
+//            System.out.println(i + " dx: " + dx + "\n");
 
             inf += "i= " + i + "\n";
             inf += "\th0: " + ultH[i] + "\n";
@@ -269,8 +267,6 @@ public class clsFirma {
         for (int i = 0; i < e; i++) {
             a = calcHash(a);
         }
-        System.out.println(byteToHex(a));
-        System.out.println(dx);
 
     }
 
@@ -383,8 +379,6 @@ public class clsFirma {
         byte[][] s = new byte[16][32];
         s[0] = hextoByte(s0);
         s[1] = hextoByte(s1);
-
-        System.out.println(byteToHex(s[0]));
 
         for (int i = 2; i < 16; i++) {
             ByteArrayOutputStream output = new ByteArrayOutputStream();
