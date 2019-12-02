@@ -51,7 +51,6 @@ public class jpnlVerUsuarios extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jtxtBuqueda = new javax.swing.JTextField();
         jScrollPane1 = new javax.swing.JScrollPane();
@@ -61,9 +60,9 @@ public class jpnlVerUsuarios extends javax.swing.JPanel {
         jlblError = new javax.swing.JLabel();
         jScrollPane2 = new javax.swing.JScrollPane();
         jtxaResultado = new javax.swing.JTextArea();
-
-        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        jLabel1.setText("Usuarios");
+        jPanel2 = new javax.swing.JPanel();
+        lblClose1 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
 
         jLabel2.setText("Buscar");
 
@@ -75,6 +74,7 @@ public class jpnlVerUsuarios extends javax.swing.JPanel {
         jListUsuario.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
         jScrollPane1.setViewportView(jListUsuario);
 
+        jbtnBuscar.setFont(new java.awt.Font("Comic Sans MS", 0, 12)); // NOI18N
         jbtnBuscar.setText("Buscar");
         jbtnBuscar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -82,6 +82,7 @@ public class jpnlVerUsuarios extends javax.swing.JPanel {
             }
         });
 
+        jbtnVerificar.setFont(new java.awt.Font("Comic Sans MS", 0, 12)); // NOI18N
         jbtnVerificar.setText("Veririfcar");
         jbtnVerificar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -94,6 +95,44 @@ public class jpnlVerUsuarios extends javax.swing.JPanel {
         jtxaResultado.setColumns(20);
         jtxaResultado.setRows(5);
         jScrollPane2.setViewportView(jtxaResultado);
+
+        jPanel2.setBackground(new java.awt.Color(20, 60, 80));
+
+        lblClose1.setFont(new java.awt.Font("Franklin Gothic Demi", 0, 18)); // NOI18N
+        lblClose1.setForeground(new java.awt.Color(255, 255, 255));
+        lblClose1.setText("X");
+        lblClose1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        lblClose1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lblClose1MouseClicked(evt);
+            }
+        });
+
+        jLabel5.setFont(new java.awt.Font("Franklin Gothic Demi", 0, 18)); // NOI18N
+        jLabel5.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel5.setText("Usuarios");
+
+        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
+        jPanel2.setLayout(jPanel2Layout);
+        jPanel2Layout.setHorizontalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                .addGap(29, 29, 29)
+                .addComponent(jLabel5)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(lblClose1)
+                .addContainerGap())
+        );
+        jPanel2Layout.setVerticalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(lblClose1, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -108,9 +147,7 @@ public class jpnlVerUsuarios extends javax.swing.JPanel {
                             .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 294, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGroup(layout.createSequentialGroup()
                             .addGap(45, 45, 45)
-                            .addComponent(jlblError)
-                            .addGap(174, 174, 174)
-                            .addComponent(jLabel1))
+                            .addComponent(jlblError))
                         .addGroup(layout.createSequentialGroup()
                             .addGap(23, 23, 23)
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -122,15 +159,15 @@ public class jpnlVerUsuarios extends javax.swing.JPanel {
                                     .addGap(33, 33, 33)
                                     .addComponent(jbtnBuscar))))))
                 .addContainerGap(71, Short.MAX_VALUE))
+            .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel1)
-                    .addComponent(jlblError))
-                .addGap(20, 20, 20)
+                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 58, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jlblError)
+                .addGap(16, 16, 16)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
                     .addComponent(jtxtBuqueda, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -140,7 +177,7 @@ public class jpnlVerUsuarios extends javax.swing.JPanel {
                 .addGap(18, 18, 18)
                 .addComponent(jbtnVerificar)
                 .addGap(27, 27, 27)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 144, Short.MAX_VALUE)
+                .addComponent(jScrollPane2)
                 .addContainerGap())
         );
     }// </editor-fold>//GEN-END:initComponents
@@ -190,11 +227,19 @@ public class jpnlVerUsuarios extends javax.swing.JPanel {
 
     }//GEN-LAST:event_jbtnBuscarActionPerformed
 
+    private void lblClose1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblClose1MouseClicked
+        // TODO add your handling code here:
+        System.exit(0);
+    }//GEN-LAST:event_lblClose1MouseClicked
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
     private javax.swing.JList<String> jListUsuario;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JButton jbtnBuscar;
@@ -202,5 +247,7 @@ public class jpnlVerUsuarios extends javax.swing.JPanel {
     private javax.swing.JLabel jlblError;
     private javax.swing.JTextArea jtxaResultado;
     private javax.swing.JTextField jtxtBuqueda;
+    private javax.swing.JLabel lblClose;
+    private javax.swing.JLabel lblClose1;
     // End of variables declaration//GEN-END:variables
 }
