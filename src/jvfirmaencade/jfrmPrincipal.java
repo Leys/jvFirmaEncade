@@ -23,7 +23,7 @@ public class jfrmPrincipal extends javax.swing.JFrame {
         initComponents();
         jplAcceso frm = new jplAcceso();
         frm.setVisible(true);
-        frm.setSize(frm.getPreferredSize());
+        frm.setSize(jpnMain.getSize());
         jpnMain.add(frm);
 
         this.setExtendedState(MAXIMIZED_BOTH);
@@ -52,7 +52,7 @@ public class jfrmPrincipal extends javax.swing.JFrame {
         jpnMain.setLayout(jpnMainLayout);
         jpnMainLayout.setHorizontalGroup(
             jpnMainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 787, Short.MAX_VALUE)
+            .addGap(0, 1008, Short.MAX_VALUE)
         );
         jpnMainLayout.setVerticalGroup(
             jpnMainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -121,7 +121,7 @@ public class jfrmPrincipal extends javax.swing.JFrame {
         jpnMain.removeAll();
         jpnlRegistro reg = new jpnlRegistro();
         reg.setVisible(true);
-        reg.setSize(reg.getPreferredSize());
+        reg.setSize(jpnMain.getSize());
         jpnMain.add(reg);
         jpnMain.updateUI();
     }//GEN-LAST:event_jmenuRegActionPerformed
@@ -130,7 +130,7 @@ public class jfrmPrincipal extends javax.swing.JFrame {
         jpnMain.removeAll();
         jplAcceso ac = new jplAcceso();
         ac.setVisible(true);
-        ac.setSize(ac.getPreferredSize());
+        ac.setSize(jpnMain.getSize());
         jpnMain.add(ac);
         jpnMain.updateUI();
     }//GEN-LAST:event_jmenuISesionActionPerformed
@@ -140,7 +140,7 @@ public class jfrmPrincipal extends javax.swing.JFrame {
         jpnMain.removeAll();
         jplVerFirma ac = new jplVerFirma();
         ac.setVisible(true);
-        ac.setSize(ac.getPreferredSize());
+        ac.setSize(jpnMain.getSize());
         jpnMain.add(ac);
         jpnMain.updateUI();
     }//GEN-LAST:event_jmenuVerificarMouseClicked
@@ -151,7 +151,7 @@ public class jfrmPrincipal extends javax.swing.JFrame {
         jpnMain.removeAll();
         jpnlVerUsuarios ac = new jpnlVerUsuarios();
         ac.setVisible(true);
-        ac.setSize(ac.getPreferredSize());
+        ac.setSize(jpnMain.getSize());
         jpnMain.add(ac);
         jpnMain.updateUI();
     }//GEN-LAST:event_jmenuHistorialMouseClicked
