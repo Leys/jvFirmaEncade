@@ -49,7 +49,6 @@ public class jfrmUsPrincipal extends javax.swing.JFrame {
         jMenu2 = new javax.swing.JMenu();
         jMenu3 = new javax.swing.JMenu();
         menuFirmar = new javax.swing.JMenuItem();
-        jMenuItem2 = new javax.swing.JMenuItem();
         jmenuCerrar = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -105,9 +104,6 @@ public class jfrmUsPrincipal extends javax.swing.JFrame {
         });
         jMenu3.add(menuFirmar);
 
-        jMenuItem2.setText("Mis datos");
-        jMenu3.add(jMenuItem2);
-
         jmenuCerrar.setText("Cerrar Sesion");
         jmenuCerrar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -151,7 +147,7 @@ public class jfrmUsPrincipal extends javax.swing.JFrame {
         jpnMain.removeAll();
         jpnlFirmar reg = new jpnlFirmar();
         reg.setVisible(true);
-        reg.setSize(reg.getPreferredSize());
+        reg.setSize(jpnMain.getSize());
         reg.setUser(user);
         jpnMain.add(reg);
         jpnMain.updateUI();
@@ -166,7 +162,7 @@ public class jfrmUsPrincipal extends javax.swing.JFrame {
         jpnMain.removeAll();
         jplVerFirma ac = new jplVerFirma();
         ac.setVisible(true);
-        ac.setSize(ac.getPreferredSize());
+        ac.setSize(jpnMain.getSize());
         jpnMain.add(ac);
         jpnMain.updateUI();
     }//GEN-LAST:event_jMenu1MouseClicked
@@ -176,7 +172,7 @@ public class jfrmUsPrincipal extends javax.swing.JFrame {
         jpnMain.removeAll();
         jpnlVerUsuarios ac = new jpnlVerUsuarios();
         ac.setVisible(true);
-        ac.setSize(ac.getPreferredSize());
+        ac.setSize(jpnMain.getSize());
         jpnMain.add(ac);
         jpnMain.updateUI();
     }//GEN-LAST:event_jMenu2MouseClicked
@@ -222,7 +218,6 @@ public class jfrmUsPrincipal extends javax.swing.JFrame {
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenu jMenu3;
     private javax.swing.JMenuBar jMenuBar1;
-    private javax.swing.JMenuItem jMenuItem2;
     private javax.swing.JMenuItem jmenuCerrar;
     private javax.swing.JPanel jpnMain;
     private javax.swing.JMenuItem menuFirmar;

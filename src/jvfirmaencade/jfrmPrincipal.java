@@ -21,12 +21,14 @@ public class jfrmPrincipal extends javax.swing.JFrame {
      */
     public jfrmPrincipal() {
         initComponents();
+        
+        this.setExtendedState(MAXIMIZED_BOTH);
         jplAcceso frm = new jplAcceso();
         frm.setVisible(true);
         frm.setSize(jpnMain.getSize());
         jpnMain.add(frm);
 
-        this.setExtendedState(MAXIMIZED_BOTH);
+        
     }
 
     /**

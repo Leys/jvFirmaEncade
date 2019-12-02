@@ -175,8 +175,8 @@ public class jpnlVerUsuarios extends javax.swing.JPanel {
                     .addComponent(jtxtBuqueda, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jbtnBuscar))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(30, 30, 30)
                 .addComponent(jbtnVerificar)
                 .addGap(34, 34, 34)
                 .addComponent(jScrollPane2)
@@ -223,6 +223,14 @@ public class jpnlVerUsuarios extends javax.swing.JPanel {
             rs.close();
             jListUsuario.removeAll();
             jListUsuario.setListData(users.toArray(new String[0]));
+            if(users.get(0).equals("0")){
+                jlblError.setText("No se encontró ningún usuario");
+                            jListUsuario.removeAll();
+
+            }
+            else{
+                jlblError.setText("");
+            }
         } catch (SQLException ex) {
             System.out.println(ex.getMessage());
         }
@@ -237,10 +245,8 @@ public class jpnlVerUsuarios extends javax.swing.JPanel {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JList<String> jListUsuario;
-    private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
@@ -249,7 +255,6 @@ public class jpnlVerUsuarios extends javax.swing.JPanel {
     private javax.swing.JLabel jlblError;
     private javax.swing.JTextArea jtxaResultado;
     private javax.swing.JTextField jtxtBuqueda;
-    private javax.swing.JLabel lblClose;
     private javax.swing.JLabel lblClose1;
     // End of variables declaration//GEN-END:variables
 }
