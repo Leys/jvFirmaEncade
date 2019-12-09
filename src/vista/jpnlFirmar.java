@@ -239,6 +239,7 @@ public class jpnlFirmar extends javax.swing.JPanel {
                         jtxtAInformacion.setText("Error");
                     } else {
                         //Mostrar información en pantalla
+                        inf+="\nTiempo firma: " + (System.currentTimeMillis() - inicio)+"ms";
                         jtxtAInformacion.setText(inf);
 
                         //Actualizar semilla

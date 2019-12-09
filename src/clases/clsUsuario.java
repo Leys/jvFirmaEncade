@@ -248,6 +248,7 @@ public class clsUsuario extends clsConexion {
                 }
             }
             System.out.println("Tiempo por cadena: " + (System.currentTimeMillis() - inicio));
+            this.resultado+="\nTiempo por cadena: " + (System.currentTimeMillis() - inicio)+"ms\n";
 
         }
         this.resultado += "\nCadena correcta";

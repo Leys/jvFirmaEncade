@@ -224,7 +224,6 @@ public class clsFirma {
 //            System.out.println(i + " h0: " + ultH[i]);
 //            System.out.println(i + " h1: " + h[i]);
 //            System.out.println(i + " dx: " + dx + "\n");
-
             inf += "i= " + i + "\n";
             inf += "\th0: " + ultH[i] + "\n";
             inf += "\th1: " + h[i] + "\n";
@@ -283,6 +282,7 @@ public class clsFirma {
         }
         t = System.currentTimeMillis() - t;
         System.out.println("Tiempo de Primera verificacion: " + t);
+        details = "\nTiempo de Primera verificacion: " + t + "ms\n";
         t = System.currentTimeMillis();
 
         ayuda(h[0], uh[0]);
@@ -295,10 +295,11 @@ public class clsFirma {
         }
         t = System.currentTimeMillis() - t;
         System.out.println("Tiempo de segunda verificacion: " + t);
+        details += "\nTiempo de segunda verificacion: " + t + "ms\n";
         return details;
     }
-    
-    public byte[][] verCadena(byte[][] lin, int[] uh, int h[]){
+
+    public byte[][] verCadena(byte[][] lin, int[] uh, int h[]) {
         for (int i = 0; i < 16; i++) {
             int e = (h[i] - BigInteger.valueOf(uh[i]).multiply(BigInteger.valueOf(h[i])).divide(BigInteger.valueOf((long) (Math.pow(2, 16) - 1))).intValue());
             for (int j = 0; j < e; j++) {
@@ -408,6 +409,5 @@ public class clsFirma {
         }
         return data;
     }
-    
 
 }

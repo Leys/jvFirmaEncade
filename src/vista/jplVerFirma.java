@@ -282,9 +282,9 @@ public class jplVerFirma extends javax.swing.JPanel {
 
                 clsFirma verif = new clsFirma();
 
-                verif.verificarFirma(firma.clone(), f0.clone(), uh.clone(), archivo.clone());
+                resultado=verif.verificarFirma(firma.clone(), f0.clone(), uh.clone(), archivo.clone());
                 System.out.println("Primer verificacion: ");
-                resultado = "Primer verificacion: \n";
+                resultado += "Primer verificacion: \n";
 
                 for (int i = 0; i < 16; i++) {
                     if (verif.toDouble(verif.getFirma()[i]) == verif.toDouble(llave[i])) {
